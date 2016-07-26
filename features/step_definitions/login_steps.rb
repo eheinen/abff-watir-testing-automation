@@ -3,7 +3,7 @@ Given(/^I am on LoginPage$/) do
   @browser.title.should eq(@current_page.title)
 end
 
-When(/^I fill "([^"]*)" in login field$/) do |value|
+When(/^I fill "([^"]*)" in login field$/) do |value, field|
   @current_page.login = value
 end
 

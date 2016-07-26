@@ -1,7 +1,9 @@
+# In this class I'm using Page Object Gem from Cheezy
+
 class LoginPage
   include PageObject
 
-  page_url('file:///Users/eheinen/Workspace/html/animal-best-friend-forever/login.html')
+  page_url(DEFAULT_DATA['application_page'] + 'login.html')
 
   text_field(:login, id: 'txt-usuario')
   text_field(:password, id: 'txt-senha')
@@ -10,9 +12,9 @@ class LoginPage
   link(:sign_up, id: 'lnk-cadastrar-usuario')
   span(:message, id: 'message-text')
 
-  def authenticate
-    self.login = 'admin'
-    self.password = 'admin'
+  def authenticate login, password
+    self.login = login
+    self.password = password
     self.sign_in
   end
 
